@@ -25,10 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     EditText edt_nombreJob;
     Button btnBuscarJob;
-    TextView txt_descJob;
-    TextView title_job;
-    TextView company;
-    ImageView fotoCompany;
     ArrayList<Job> listJobs;
 
     RecyclerView recyclerJob;
