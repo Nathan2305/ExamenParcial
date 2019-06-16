@@ -40,17 +40,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         recyclerJob = findViewById(R.id.recyclerJob);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         btnBuscarJob = findViewById(R.id.buscarJob);
         edt_nombreJob = findViewById(R.id.nombreJob);
-       /* edt_nombreJob = findViewById(R.id.nombreJob);
-        btnBuscarJob = findViewById(R.id.buscarJob);
-        title_job=findViewById(R.id.titleJob);
-        txt_descJob = findViewById(R.id.descJob);
-        company=findViewById(R.id.company);
-        fotoCompany=findViewById(R.id.fotoCompany);*/
         btnBuscarJob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,13 +62,6 @@ public class MainActivity extends AppCompatActivity {
                                 listJobs = new ArrayList<>();
                                 ArrayList<Job> jobArrayList = response.body();
                                 for (Job aux_job : jobArrayList) {
-                                   /* if (job.equalsIgnoreCase(aux_job.getTitle())){
-                                        title_job.setText(aux_job.getTitle());
-                                        txt_descJob.setText(aux_job.getDescription());
-                                        Glide.with(getApplicationContext()).load(aux_job.getCompany_logo()).into(fotoCompany);
-                                        company.setText(aux_job.getCompany());
-                                        break;
-                                    }*/
                                     if (aux_job.getTitle().contains(job)) {
                                         listJobs.add(aux_job);
                                     }
@@ -89,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<ArrayList<Job>> call, Throwable throwable) {
-                            System.out.println("ERROR :" + throwable.getMessage());
+                            System.out.println("ERROR CONSUMIENDO SERVICIO:" + throwable.getMessage());
                         }
                     });
 
